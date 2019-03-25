@@ -1,0 +1,94 @@
+
+<div class="wrapper animated bounceInRight " id="addUser">
+  <div class="user">
+    <div class="user_options-container">
+      <div class="user_options-text">
+        <div class="user_options-unregistered">
+          <div class="user_unregistered-title">
+            <img src="assets/logo.png" class="logoImage">
+          </div>
+          <h2 class="user_unregistered-text">Video Triggered Incident Management</h2>
+        </div>
+      </div>
+      <div class="user_options-forms add-user">
+        <div>
+          <div class="d-block d-sm-block d-md-none ">
+            <div>
+              <img src="assets/efkon-text.png" class="logoImage">
+            </div>
+            <h2 class="user_unregistered-text">Video Triggered Incident Management</h2>
+          </div>
+        </div>
+        <div class="user_forms-login">
+          <h2 class="forms_title Register" style="text-transform: capitalize;">Add User</h2>
+          <form #registerForm="ngForm" (ngSubmit)="onSubmit(registerForm.value)">
+            <fieldset class="forms_fieldset">
+              <div class="forms_field">
+                <input type="text" ngModel name="name" required class="forms_field-input" aria-describedby="name"
+                  placeholder="Name">
+              </div>
+              <div class="forms_field">
+                <input type="text" ngModel name="username" required class="forms_field-input" aria-describedby="username"
+                  placeholder="Username">
+              </div>
+              <div class="forms_field">
+                <input type="text" ngModel name="email" class="forms_field-input" aria-describedby="email" placeholder="Email">
+              </div>
+              <div class="forms_field">
+                <input type="number" ngModel name="contact" class="forms_field-input" aria-describedby="ContatNo"
+                  placeholder="Contact No.">
+              </div>
+              <div class="forms_field">
+                <input type="password" ngModel name="password" required class="forms_field-input" aria-describedby="Password"
+                  placeholder="Password">
+              </div>
+              <div class="form-group">
+                <select ngModel name="role" #role="ngModel" (change)="onRoleChange(role.value)" required class="forms_field-input selectOption"
+                  aria-describedby="Role">
+                  <option value="" selected disabled hidden>Select Role</option>
+                  <option *ngFor="let r of roles" [ngValue]="r">{{r.name}}</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label>Select Cities</label>
+                <select  ngModel name="cities"  required class="forms_field-input selectOption"
+                  aria-describedby="Cities">
+                  <option *ngFor="let c of cities" [ngValue]="c">{{c.name}}</option>
+                </select>
+              </div>
+              <!-- <div class="form-group">
+                <p *ngIf="loadingJunctions"><span><i class="fa fa-spin fa-spinner"></i> </span></p>
+                <div *ngIf="!loadingJunctions">
+                  <label>Select Junctions</label>
+                  <select multiple ngModel name="junctionIds" required class="forms_field-input selectOption"
+                    aria-describedby="Cities">
+                    <option *ngFor="let j of junctions" [value]="j.id">{{j.name}}</option>
+                  </select>
+                </div>
+              </div> -->
+            </fieldset>
+          
+            <div class="forms_buttons">
+                <button type="button" class="btn btn-link back-btn" routerLink="/control-room">Back</button>
+              <button type="submit" class="forms_buttons-action" [disabled]="registerForm.invalid || submitting">Register</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <ul class="bg-bubbles">
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+  </ul>
+</div>

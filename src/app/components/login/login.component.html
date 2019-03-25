@@ -1,0 +1,70 @@
+<div class="wrapper">
+
+  <div class="user">
+    <div class="user_options-container">
+      <div class="user_options-text">
+        <div class="user_options-unregistered">
+          <div class="user_unregistered-title">
+            <img src="assets/logo.png" class="logoImage">
+          </div>
+          <h2 class="user_unregistered-text">Video Triggered Incident Management</h2>
+        </div>
+      </div>
+      <div class="user_options-forms">
+        <div>
+          <div class="d-block d-sm-block d-md-none ">
+            <div>
+              <img src="assets/efkon-text.png" class="logoImage">
+            </div>
+
+            <h2 class="user_unregistered-text">Video Triggered Incident Management</h2>
+
+
+          </div>
+        </div>
+        <div class="user_forms-login">
+          <h2 class="forms_title">Login</h2>
+          <form name="Login_Form" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+            <fieldset class="forms_fieldset">
+              <div class="forms_field">
+                <input type="text" class="forms_field-input" placeholder="Username" formControlName="username">
+              </div>
+              <div class="forms_field">
+                <input type="password" formControlName="password" placeholder="Password" class="forms_field-input">
+              </div>
+            </fieldset>
+            <div class="forms_buttons">
+              <a routerLink='/forgot-pwd'>Forgot Password ?</a>
+              <button class="forms_buttons-action login-btn" type="submit" [disabled]="logging">{{logging?'Logging...' :'Login' }}</button>
+            </div>
+
+            <div class="err-msg" *ngIf="errorMsg">
+              <p>{{errorMsg}}</p>
+            </div>
+          </form>
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+
+  <ul class="bg-bubbles">
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+  </ul>
+</div>

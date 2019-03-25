@@ -1,0 +1,21 @@
+<nav class="navbar navbar-expand-lg navbar-light">
+  <a class="navbar-brand" href="#">
+    <img src="assets/logo-name.png" height="24" alt="efkon" />
+  </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+     
+    </ul>
+    <i class="material-icons userIcon" routerLink='register'>
+      person_add
+    </i>
+    <button class="user-btn" routerLink='register'>Add User</button>
+    <i class="fas fa-sign-out-alt userIcon " aria-hidden="true" (click)="onLogout()" style="margin-left: 30px;"></i>
+    <button class="user-btn" (click)="onLogout()">Logout</button>
+  </div>
+</nav>

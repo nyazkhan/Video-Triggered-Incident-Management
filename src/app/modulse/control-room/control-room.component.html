@@ -1,0 +1,173 @@
+<app-header></app-header>
+<!-- MAP DIV -->
+<div #map id="mapDiv" class="m-0">
+
+</div>
+
+
+<div #topRightControl class="main action-buttons">
+    <div class="help">
+        <span class="shrinked">?</span>
+        <div class="indicators">
+            <div class="indicator">
+                <div class="ball green">
+
+                </div>
+                <div class="description">
+                    Active RSUs
+                </div>
+            </div>
+            <div class="indicator">
+                <div class="ball red">
+
+                </div>
+                <div class="description">
+                    Inactive RSUs
+                </div>
+            </div>
+            <div class="indicator">
+                <div class="ball yellow">
+
+                </div>
+                <div class="description">
+                    Need to add camera
+                </div>
+            </div>
+            <div class="indicator">
+                <div class="ball orange">
+
+                </div>
+                <div class="description">
+                    Need to configure camera
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+<div #bottomRightControl class="action-buttons">
+
+    <button routerLink="/dashboard">
+        <i class="material-icons">dashboard</i>
+        <span>Dashboard</span>
+    </button>
+    <!-- <button>
+        <i class="material-icons">linked_camera</i>
+        <span>Detectors</span>
+    </button>
+    <button>
+        <i class="material-icons">access_alarm</i>
+        <span>View File Logs</span>
+    </button>
+    <button>
+        <i class="material-icons">access_alarm</i>
+        <span>View Logs</span>
+    </button> -->
+    <button data-toggle="modal" (click)="openAddRSUModal()">
+        <i class="material-icons">
+            add_location
+        </i>
+        <span>Add RSU</span>
+    </button>
+
+</div>
+
+<app-config-equip-modal *ngIf="showConfigureModal"></app-config-equip-modal>
+<!--- add junction modal -->
+<div class="modal fade" id="addRSUModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header modal-headcolor ">
+                <h5 class="modal-title">Add RSU</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form #addRSUForm="ngForm">
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="input-group input-group-sm mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">Name</span>
+                                </div>
+                                <input type="text" [ngModel]="newRsuInfo.name" name="name" #name="ngModel" required
+                                    class="form-control" aria-describedby="Rsu Name" placeholder="Rsu Name">
+                            </div>
+                        </div>
+                        <!-- <div class="col-sm-12">
+                            <div class="input-group input-group-sm mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">IP Address</span>
+                                </div>
+                                <input type="text" [ngModel]="newRsuInfo.ipAddress" name="ipAddress" #ip="ngModel"
+                                    class="form-control" aria-describedby="IP Address" placeholder="IP Address">
+                            </div>
+                        </div> -->
+                        <!-- <div class="col-sm-12">
+                            <div class="input-group input-group-sm mb-3">
+
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">Junction Type
+                                        <i *ngIf="!junctionTypes" style="margin-left: 3px;"
+                                            class="fa fa-spinner fa-spin"></i>
+                                    </span>
+                                </div>
+                                <select class="form-control" [ngModel]="newRsuInfo.type" name="type"
+                                    #noOfJ="ngModel" required>
+                                    <option *ngFor="let type of junctionTypes" [ngValue]="type">{{type.name}}</option>
+                                </select>
+                            </div>
+                        </div> -->
+                        <div class="col-sm-7 d-block m-auto">
+                            <!-- <app-junction-svg class="app-junction-svg" [armLength]="noOfJ.value?.armCount"></app-junction-svg> -->
+                        </div>
+                    </div>
+                    <div class="row border-top pt-2">
+                        <div ngModelGroup="pos" #pos="ngModelGroup" style="display: -webkit-box;">
+                            <div class="col-sm-6">
+                                <div class="input-group input-group-sm mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text">Longitude</span>
+                                    </div>
+                                    <input type="number" [ngModel]="newRsuInfo.pos.lng" name="lng" required
+                                        class="form-control" aria-describedby="Longitude" placeholder="Longitude">
+                                </div>
+
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="input-group input-group-sm mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text">Latitude</span>
+                                    </div>
+                                    <input type="number" [ngModel]="newRsuInfo.pos.lat" name="lat" required
+                                        class="form-control" aria-describedby="Latitude" placeholder="Latitude">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 text-center">
+                            <h4>Or Pin On Map </h4>
+                        </div>
+                        <div class="d-block m-auto text-center">
+                            <button type="button" (click)="dropPinOnMap(addRSUForm.value)"
+                                class="btn btn-icon-round active mapBtn" aria-label="Pin on map">
+                                <i class="material-icons">
+                                    add_location
+                                </i>
+                            </button>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn saveBtn" data-dismiss="modal">Close</button>
+                    <button type="submit" [disabled]="addRSUForm.invalid" class="btn saveBtn"
+                        aria-label="save">Save</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

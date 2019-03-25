@@ -1,0 +1,276 @@
+<!-- CONFIG-EQUIP  MODEL -->
+
+
+
+<div class="modal fade" id="juncEquipConfigModal" tabindex="-1" role="dialog" aria-labelledby="juncEquipConfigModal"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header modal-headcolor">
+                <h5 class="modal-title">configuration </h5>
+                <button type="button" class="close" (click)="onCloseBtn()" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+
+
+
+            <form #configEquipForm="ngForm">
+                <div class="modal-body">
+                    <span class="spinner-center"> <i *ngIf="loading" class="fa fa-spinner fa-spin"></i>
+                    </span>
+
+                    <div>
+
+                        <div>
+                            <h6>Camera Details</h6>
+                            <div class="equip_border">
+
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <div class="input-group input-group-sm mb-3">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text">Camera ID</span>
+                                            </div>
+                                            <input type="text" [ngModel]="junctionInfo.name" name="name" required
+                                                class="form-control" aria-describedby="Enter here"
+                                                placeholder="Enter here">
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-12">
+                                        <div class="input-group input-group-sm mb-3">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text">Camera IP Address</span>
+                                            </div>
+                                            <input type="text" [ngModel]="junctionInfo.name" name="name" required
+                                                class="form-control" aria-describedby="Enter here"
+                                                placeholder="Enter here">
+                                        </div>
+                                    </div>
+
+
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <div class="input-group input-group-sm mb-3">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text">Systam IP Address</span>
+                                            </div>
+                                            <input type="text" [ngModel]="junctionInfo.name" name="name" required
+                                                class="form-control" aria-describedby="Enter here"
+                                                placeholder="Enter here">
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-12">
+                                        <div class="input-group input-group-sm mb-3">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text">Text File Folder Path</span>
+                                            </div>
+                                            <input type="text" [ngModel]="junctionInfo.name" name="name" required
+                                                class="form-control" aria-describedby="Enter here"
+                                                placeholder="Enter here">
+                                        </div>
+                                    </div>
+
+
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <div class="input-group input-group-sm mb-3">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text">Video Folder Path </span>
+                                            </div>
+                                            <input type="text" [ngModel]="junctionInfo.name" name="name" required
+                                                class="form-control" aria-describedby="Enter here"
+                                                placeholder="Enter here">
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="input-group input-group-sm mb-3">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text">Software Virsion</span>
+                                            </div>
+                                            <input type="text" [ngModel]="junctionInfo.name" name="name" required
+                                                class="form-control" aria-describedby="Enter here"
+                                                placeholder="Enter here">
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="input-group input-group-sm mb-3">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text">Hardware Virsion</span>
+                                            </div>
+                                            <input type="text" [ngModel]="junctionInfo.name" name="name" required
+                                                class="form-control" aria-describedby="Enter here"
+                                                placeholder="Enter here">
+                                        </div>
+                                    </div>
+
+
+                                </div>
+
+                            </div>
+                        </div>
+
+
+
+                    </div>
+
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn saveBtn">
+                        Add Camera
+                    </button>
+                    <button type="button" class="btn saveBtn" [disabled]="configEquipForm.invalid || submitting"
+                        (click)="onSubmit(configEquipForm.value)">
+                        <!-- {{0?'Submitting...':'Save'}} -->
+                        save
+                    </button>
+
+                </div>
+            </form>
+
+
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+<!-- <div class="modal fade" id="juncEquipConfigModal" tabindex="-1" role="dialog" aria-labelledby="juncEquipConfigModal"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header modal-headcolor">
+                <h5 class="modal-title">Add Camera</h5>
+                <button type="button" class="close" (click)="onCloseBtn()" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+
+
+
+            <form #configEquipForm="ngForm">
+                <div class="modal-body">
+                    <span class="spinner-center"> <i *ngIf="loading" class="fa fa-spinner fa-spin"></i>
+                    </span>
+
+                    <div>
+
+                        <div>
+                            <h6>Camera Details</h6>
+                            <div class="equip_border">
+
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <div class="input-group input-group-sm mb-3">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text">Camera ID</span>
+                                            </div>
+                                            <input type="text" [ngModel]="junctionInfo.name" name="name" required
+                                                class="form-control" aria-describedby="Enter here"
+                                                placeholder="Enter here">
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-12">
+                                        <div class="input-group input-group-sm mb-3">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text">Camera IP Address</span>
+                                            </div>
+                                            <input type="text" [ngModel]="junctionInfo.name" name="name" required
+                                                class="form-control" aria-describedby="Enter here"
+                                                placeholder="Enter here">
+                                        </div>
+                                    </div>
+
+
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <div class="input-group input-group-sm mb-3">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text">Systam IP Address</span>
+                                            </div>
+                                            <input type="text" [ngModel]="junctionInfo.name" name="name" required
+                                                class="form-control" aria-describedby="Enter here"
+                                                placeholder="Enter here">
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-12">
+                                        <div class="input-group input-group-sm mb-3">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text">Text File Folder Path</span>
+                                            </div>
+                                            <input type="text" [ngModel]="junctionInfo.name" name="name" required
+                                                class="form-control" aria-describedby="Enter here"
+                                                placeholder="Enter here">
+                                        </div>
+                                    </div>
+
+
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <div class="input-group input-group-sm mb-3">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text">Video Folder Path </span>
+                                            </div>
+                                            <input type="text" [ngModel]="junctionInfo.name" name="name" required
+                                                class="form-control" aria-describedby="Enter here"
+                                                placeholder="Enter here">
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="input-group input-group-sm mb-3">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text">Software Virsion</span>
+                                            </div>
+                                            <input type="text" [ngModel]="junctionInfo.name" name="name" required
+                                                class="form-control" aria-describedby="Enter here"
+                                                placeholder="Enter here">
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="input-group input-group-sm mb-3">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text">Hardware Virsion</span>
+                                            </div>
+                                            <input type="text" [ngModel]="junctionInfo.name" name="name" required
+                                                class="form-control" aria-describedby="Enter here"
+                                                placeholder="Enter here">
+                                        </div>
+                                    </div>
+
+
+                                </div>
+
+                            </div>
+                        </div>
+
+
+
+                    </div>
+
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn saveBtn">
+                        Add Camera
+                    </button>
+                    <button type="button" class="btn saveBtn" [disabled]="configEquipForm.invalid || submitting"
+                        (click)="onSubmit(configEquipForm.value)">
+                        {{0?'Submitting...':'Save'}}
+                        save
+                    </button>
+
+                </div>
+            </form>
+
+
+        </div>
+    </div>
+</div> -->
