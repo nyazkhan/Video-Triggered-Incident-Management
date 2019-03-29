@@ -1,0 +1,83 @@
+<div class="modal fade" id="configureCameraModal" tabindex="-1" role="dialog" aria-labelledby="configureCameraModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="configureCameraModalLabel">Camera List</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <table>
+          <thead>
+            <tr>
+              <td>S. no.</td>
+              <td>
+                Camera Id
+              </td>
+              <td> Active</td>
+              <td (click)="editCameraDetials(23)"> Edit</td>
+              <td> Watch Live</td>
+
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                1
+              </td>
+              <td>
+
+                camera_0211
+              </td>
+              <td><input type="checkbox" name="checkbox"> </td>
+              <td (click)="editCameraDetials(23)"> Edit</td>
+              <td> Watch Live</td>
+
+
+            </tr>
+            <tr>
+              <td>
+                2
+              </td>
+              <td>
+
+                camera_311
+              </td>
+              <td><input type="checkbox" name="checkbox"> </td>
+              <td (click)="editCameraDetials(23)"> Edit</td>
+              <td> Watch Live</td>
+
+
+            </tr>
+            <tr>
+              <td>
+                3
+              </td>
+              <td>
+
+                camera_0431
+              </td>
+              <td><input type="checkbox" name="checkbox"> </td>
+
+              <td (click)="editCameraDetials(23)"> Edit</td>
+              <td> Watch Live</td>
+
+
+            </tr>
+          </tbody>
+        </table>
+
+      </div>
+      <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" (click)="addCamera()">Add Camera</button>
+
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- <app-add-camera ></app-add-camera> -->

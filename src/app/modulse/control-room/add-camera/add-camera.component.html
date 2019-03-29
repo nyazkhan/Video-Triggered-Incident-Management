@@ -1,0 +1,98 @@
+<div class="modal fade" id="cameraModal" tabindex="-1" role="dialog" aria-labelledby="cameraModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="cameraModalLabel">Camera Detail</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="input-group input-group-sm mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">Camera ID</span>
+                </div>
+                <input type="text" [ngModel]="cameraInfo.cameraId" name="cameraId" required class="form-control"
+                  aria-describedby="Enter here" placeholder="Enter here">
+              </div>
+            </div>
+            <div class="col-sm-12">
+              <div class="input-group input-group-sm mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">Camera IP Address</span>
+                </div>
+                <input type="text" [ngModel]="cameraInfo.cameraIpAddress" name="cameraIpAddress" required
+                  class="form-control" aria-describedby="Enter here" placeholder="Enter here">
+              </div>
+            </div>
+
+
+          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="input-group input-group-sm mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">Systam IP Address</span>
+                </div>
+                <input type="text" [ngModel]="cameraInfo.systemIpAddress" name="systemIpAddress" required
+                  class="form-control" aria-describedby="Enter here" placeholder="Enter here">
+              </div>
+            </div>
+            <div class="col-sm-12">
+              <div class="input-group input-group-sm mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">Text File Folder Path</span>
+                </div>
+                <input type="text" [ngModel]="cameraInfo.textFileFolderPath" name="textFileFolderPath" required
+                  class="form-control" aria-describedby="Enter here" placeholder="Enter here">
+              </div>
+            </div>
+
+
+          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="input-group input-group-sm mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">Video Folder Path </span>
+                </div>
+                <input type="text" [ngModel]="cameraInfo.videoFileFolderPath" name="videoFileFolderPath" required
+                  class="form-control" aria-describedby="Enter here" placeholder="Enter here">
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="input-group input-group-sm mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">Software Virsion</span>
+                </div>
+                <input type="text" [ngModel]="cameraInfo.hardwareVersion" name="hardwareVersion" required
+                  class="form-control" aria-describedby="Enter here" placeholder="Enter here">
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="input-group input-group-sm mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">Hardware Virsion</span>
+                </div>
+                <input type="text" [ngModel]="cameraInfo.softwareVersion" name="softwareVersion" required
+                  class="form-control" aria-describedby="Enter here" placeholder="Enter here">
+              </div>
+            </div>
+
+
+          </div>
+
+
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save</button>
+      </div>
+    </div>
+  </div>
+</div>

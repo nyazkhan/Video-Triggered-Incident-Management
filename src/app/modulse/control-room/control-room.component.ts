@@ -80,9 +80,15 @@ export class ControlRoomComponent implements OnInit {
   downEquipModalInfo = null;
 
 
-  /** For showing/closing junction configure modal(pop-up) having basic form*/
-  showConfigureModal = false;
+  /** For showing/closing add camera  modal(pop-up) having basic form*/
+  showAddCameraModal = false;
+  /** For showing/closing configure camera  modal(pop-up) having basic form*/
 
+  showConfigureCameraModal = false;
+
+  /** For showing/closing configuration file  modal(pop-up) having basic form*/
+
+  showConfigureFileModal = false;
   /** Holds the marker reference which is opened for either configuration or edition */
   markerBeingConfigured: any;
 
@@ -624,21 +630,21 @@ export class ControlRoomComponent implements OnInit {
       btn1.className = 'configureBtn';
       btn1.innerText = 'Add camera';
       // btn1.innerText = marker.info.configureStatus === MarkerStatus.Junction_Set ? 'Configure' : 'Configure Equipments';
-      btn1.addEventListener('click', this.onConfigureBtn.bind(this, marker));
+      btn1.addEventListener('click', this.onAddCameraBtn.bind(this, marker));
       div.appendChild(btn1);
 
       if (marker.info.configureStatus !== MarkerStatus.Junction_Set) {
         const btn2 = document.createElement('button');
         btn2.className = 'configureBtn';
         btn2.innerText = '  Configure  camera';
-        btn2.addEventListener('click', this.editBtn.bind(this, marker));
+        btn2.addEventListener('click', this.onConfigureCameraBtn.bind(this, marker));
         div.appendChild(btn2);
 
-        // const btn3 = document.createElement('button');
-        // btn3.className = 'configureBtn';
-        // btn3.innerText = 'Configure RSU';
-        // btn3.addEventListener('click', this.configureMasterBtn.bind(this, marker));
-        // div.appendChild(btn3);
+        const btn3 = document.createElement('button');
+        btn3.className = 'configureBtn';
+        btn3.innerText = 'Configuration File';
+        btn3.addEventListener('click', this.onConfigurationFileBtn.bind(this, marker));
+        div.appendChild(btn3);
 
         // const btn4 = document.createElement('button');
         // btn4.className = 'configureBtn';
@@ -730,14 +736,15 @@ export class ControlRoomComponent implements OnInit {
   // JUNCTION CONFIG-STARTS
 
   /**Click handler for configure button on marker's pop-up. Opens Junction Configure modal */
-  onConfigureBtn(marker: any) {
+  onAddCameraBtn(marker: any) {
     // close the infoWindow on configure btn and open modal
     if (marker.infoWindow.isOpen()) {
       marker.infoWindow.remove();
     }
     this.markerBeingConfigured = marker;
+    $('#cameraModal').modal({ backdrop: 'static', keyboard: false });
 
-    this.showConfigureModal = true;
+    // this.showAddCameraModal = true;
   }
 
   /**Click handler for configure button on marker's pop-up. Opens Junction Configure modal */
@@ -751,23 +758,25 @@ export class ControlRoomComponent implements OnInit {
   }
 
   /**Click handler for configure detector button on markers' pop-up. Naviagates to Master interface */
-  configureDetectorBtn(marker: any) {
-    this.router.navigate(['/detector', marker.info.id]);
-  }
+  // configureDetectorBtn(marker: any) {
+  //   this.router.navigate(['/detector', marker.info.id]);
+  // }
 
   /**Click handler for view summary button on markers' pop-up. Naviagates to Master interface */
-  viewSummaryBtn(marker: any) {
-    this.router.navigate(['/master', marker.info.id, 'summary-detailed'], { queryParams: { withDetector: true } });
-  }
+  // viewSummaryBtn(marker: any) {
+  //   this.router.navigate(['/master', marker.info.id, 'summary-detailed'], { queryParams: { withDetector: true } });
+  // }
   /**Click handler for edit btn on markers' pop-up. Opens Junctions' edit modal */
-  editBtn(marker: any) {
+  onConfigureCameraBtn(marker: any) {
     // close the infoWindow on edit btn and open modal
     if (marker.infoWindow.isOpen()) {
       marker.infoWindow.remove();
     }
     // here it represents markerBeingEdited
     this.markerBeingConfigured = marker;
-    // this.showConfigureEditModal = true;
+    $('#configureCameraModal').modal({ backdrop: 'static', keyboard: false });
+
+    // this.showConfigureCameraModal = true;
   }
   /**Upload the added junction to server and show success/erro messages. */
   uploadNewJunctionInfo(frmtdAddress: string) {
@@ -809,8 +818,16 @@ export class ControlRoomComponent implements OnInit {
         });
     });
   }
-  configureMasterBtn(marker: any) {
-    this.router.navigate(['/master', marker.info.id]);
+  onConfigurationFileBtn(marker: any) {
+    if (marker.infoWindow.isOpen()) {
+      marker.infoWindow.remove();
+    }
+    // here it represents markerBeingEdited
+    this.markerBeingConfigured = marker;
+    $('#configurationModal').modal({ backdrop: 'static', keyboard: false });
+
+
+    this.showConfigureFileModal = true;
   }
 
 

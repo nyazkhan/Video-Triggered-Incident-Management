@@ -186,52 +186,14 @@
     <div *ngIf="scriptLoaded">
 
       <div class="row">
-        <div class="col-md-6">
+        <div class="col-md-12">
           <div class="card">
             <div class=" card-header card-header-danger">
 
             </div>
             <div class="card-body">
 
-              <div id="vis_div" GoogleChart [chartType]="'ColumnChart'" [dataTable]="dataTable1" [options]="options1">
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-6">
-          <div class="card">
-            <div class="card card-header card-header-danger">
-
-            </div>
-            <div class="card-body">
-
-              <div id="vis_div2" GoogleChart [chartType]="'BarChart'" [dataTable]="dataTable2" [options]="options2">
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-6">
-          <div class="card">
-            <div class="card card-header card-header-danger">
-
-            </div>
-            <div class="card-body">
-
-              <div id="vis_div3" GoogleChart [chartType]="'ColumnChart'" [dataTable]="dataTable3" [options]="options3">
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-6">
-          <div class="card">
-            <div class="card card-header card-header-danger">
-
-            </div>
-            <div class="card-body">
-
-              <div id="vis_div4" GoogleChart [chartType]="'ColumnChart'" [dataTable]="dataTable4" [options]="options4">
+              <div id="vis_div" GoogleChart  style="width: 1300px; height: 400px;" [chartType]="'ColumnChart'" [dataTable]="dataTable1" [options]="options1">
               </div>
             </div>
           </div>
@@ -243,7 +205,45 @@
             </div>
             <div class="card-body">
 
-              <div id="vis_div5" style="width: 1200px; height: 400px;" GoogleChart [chartType]="'ColumnChart'"
+              <div id="vis_div2" GoogleChart  style="width: 1300px; height: 400px;" [chartType]="'BarChart'" [dataTable]="dataTable2" [options]="options2">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <div class="card">
+            <div class="card card-header card-header-danger">
+
+            </div>
+            <div class="card-body">
+
+              <div id="vis_div3" GoogleChart  style="width: 1300px; height: 400px;" [chartType]="'ColumnChart'" [dataTable]="dataTable3" [options]="options3">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-12">
+          <div class="card">
+            <div class="card card-header card-header-danger">
+
+            </div>
+            <div class="card-body">
+
+              <div id="vis_div4" GoogleChart  style="width: 1300px; height: 400px;" [chartType]="'ColumnChart'" [dataTable]="dataTable4" [options]="options4">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-12">
+          <div class="card">
+            <div class="card card-header card-header-danger">
+
+            </div>
+            <div class="card-body">
+
+              <div id="vis_div5" style="width: 1300px; height: 400px;" GoogleChart [chartType]="'ColumnChart'"
                 [dataTable]="dataTable5" [options]="options5"></div>
             </div>
           </div>

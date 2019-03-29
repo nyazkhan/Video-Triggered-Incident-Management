@@ -9,7 +9,7 @@ import { ControlRoomService } from 'src/app/services/control-room.service';
 })
 export class AddUserComponent implements OnInit {
   /**list of cities from server */
-  cities = [{name: 'faridabad'}, {name: 'rohtak'}, {name: 'ambala'}, {name: 'sonipat'}];
+  cities = [{ name: 'faridabad' }, { name: 'rohtak' }, { name: 'ambala' }, { name: 'sonipat' }];
   /**list of user roles from server */
   roles = [{ name: 'Admin' }, { name: 'Supervisor' }, { name: 'Oprater' }];
   /**list of rsu from server */
@@ -53,6 +53,11 @@ export class AddUserComponent implements OnInit {
 
   // Function to return junctions on changing the roles
   onRoleChange(role: any) {
+    if (role.name === 'Supervisor') {
+
+    } else {
+
+    }
     // if (role.name !== 'Master') {
     //   this.MAXASSIGNCITIES = role.maxAssignedCity;
     // } else {

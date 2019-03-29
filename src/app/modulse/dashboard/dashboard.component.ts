@@ -11,14 +11,25 @@ export class DashboardComponent implements OnInit {
 
   title = 'vtcm';
   // chartType = 'ColumnChart';
-  dataTable1 = [['Year', 'Type1', 'Type2', 'Type3', 'Type4', 'Type5', 'Type6'],
+  dataTable1 = [['Year', 'Stop', 'Reverse', 'Queue', 'Pedestrian', 'Worng Side', 'Traffic Jam'],
+  ['2014', this.random(), this.random(), this.random(), this.random(), this.random(), this.random()],
+  ['2015', this.random(), this.random(), this.random(), this.random(), this.random(), this.random()],
   ['2016', this.random(), this.random(), this.random(), this.random(), this.random(), this.random()],
   ['2017', this.random(), this.random(), this.random(), this.random(), this.random(), this.random()],
-  ['2018', this.random(), this.random(), this.random(), this.random(), this.random(), this.random()]
+  ['2018', this.random(), this.random(), this.random(), this.random(), this.random(), this.random()],
+  ['2019', this.random(), this.random(), this.random(), this.random(), this.random(), this.random()]
   ];
-  options1 = { 'title': 'Number of Incidents', 'isStacked': true };
+  options1 = {
+    'title': 'Number of Incidents Per Year', hAxis: {
+      title: 'Year',
+    },
+    vAxis: {
+      title: 'No Of Incidents by Category',
 
-  dataTable2 = [['Month', 'Type1', 'Type2', 'Type3', 'Type4', 'Type5', 'Type6'],
+    }, 'legend': 'top', 'isStacked': true
+  };
+
+  dataTable2 = [['Month', 'Stop', 'Reverse', 'Queue', 'Pedestrian', 'Worng Side', 'Traffic Jam'],
   ['Jan', this.random(), this.random(), this.random(), this.random(), this.random(), this.random()],
   ['Feb', this.random(), this.random(), this.random(), this.random(), this.random(), this.random()],
   ['Mar', this.random(), this.random(), this.random(), this.random(), this.random(), this.random()],
@@ -32,17 +43,35 @@ export class DashboardComponent implements OnInit {
   ['Nov', this.random(), this.random(), this.random(), this.random(), this.random(), this.random()],
   ['Dec', this.random(), this.random(), this.random(), this.random(), this.random(), this.random()],
   ];
-  options2 = { 'title': 'Number of Incidents in 2016', 'isStacked': true };
+  options2 = {
+    'title': 'Number of Incidents in 2016', hAxis: {
+      title: 'No Of Incidents by Category',
+    },
+    vAxis: {
+      title: ' Month',
+      minValue: 0,
 
-  dataTable3 = [['Week', 'Type1', 'Type2', 'Type3', 'Type4', 'Type5', 'Type6'],
+    }, 'legend': 'top', 'isStacked': true
+  };
+
+  dataTable3 = [['Week', 'Stop', 'Reverse', 'Queue', 'Pedestrian', 'Worng Side', 'Traffic Jam'],
   ['Week1', this.random(), this.random(), this.random(), this.random(), this.random(), this.random()],
   ['Week2', this.random(), this.random(), this.random(), this.random(), this.random(), this.random()],
   ['Week3', this.random(), this.random(), this.random(), this.random(), this.random(), this.random()],
   ['Week4', this.random(), this.random(), this.random(), this.random(), this.random(), this.random()]
   ];
-  options3 = { 'title': 'Number of Incidents in Jan 2016', 'isStacked': true };
+  options3 = {
+    'title': 'Number of Incidents in Jan 2016', hAxis: {
+      title: 'weekly',
+    },
+    vAxis: {
+      title: 'No Of Incidents by Category',
+      minValue: 0,
 
-  dataTable4 = [['Day', 'Type1', 'Type2', 'Type3', 'Type4', 'Type5', 'Type6'],
+    }, 'legend': 'top', 'isStacked': true
+  };
+
+  dataTable4 = [['Day', 'Stop', 'Reverse', 'Queue', 'Pedestrian', 'Worng Side', 'Traffic Jam'],
   ['Mon', this.random(), this.random(), this.random(), this.random(), this.random(), this.random()],
   ['Tue', this.random(), this.random(), this.random(), this.random(), this.random(), this.random()],
   ['Wed', this.random(), this.random(), this.random(), this.random(), this.random(), this.random()],
@@ -51,9 +80,18 @@ export class DashboardComponent implements OnInit {
   ['Sat', this.random(), this.random(), this.random(), this.random(), this.random(), this.random()],
   ['Sun', this.random(), this.random(), this.random(), this.random(), this.random(), this.random()],
   ];
-  options4 = { 'title': 'Number of Incidents in Jan 2016 1st week', 'isStacked': true };
+  options4 = {
+    'title': 'Number of Incidents in Jan 2016 1st week', hAxis: {
+      title: 'week',
+    },
+    vAxis: {
+      title: 'No Of Incidents by Category',
+      minValue: 0,
 
-  dataTable5 = [['Hour', 'Type1', 'Type2', 'Type3', 'Type4', 'Type5', 'Type6'],
+    }, 'legend': 'top', 'isStacked': true
+  };
+
+  dataTable5 = [['Hour', 'Stop', 'Reverse', 'Queue', 'Pedestrian', 'Worng Side', 'Traffic Jam'],
   ['1', this.random(), this.random(), this.random(), this.random(), this.random(), this.random()],
   ['2', this.random(), this.random(), this.random(), this.random(), this.random(), this.random()],
   ['3', this.random(), this.random(), this.random(), this.random(), this.random(), this.random()],
@@ -79,7 +117,16 @@ export class DashboardComponent implements OnInit {
   ['23', this.random(), this.random(), this.random(), this.random(), this.random(), this.random()],
   ['24', this.random(), this.random(), this.random(), this.random(), this.random(), this.random()]
   ];
-  options5 = { 'title': 'Number of Incidents in Monday 21 Jan 2016', 'isStacked': true };
+  options5 = {
+    'title': 'Number of Incidents in Monday 21 Jan 2016', hAxis: {
+      title: 'hour',
+    },
+    vAxis: {
+      title: 'No Of Incidents by Category',
+      minValue: 0,
+
+    }, 'legend': 'top', 'isStacked': true
+  };
 
 
 

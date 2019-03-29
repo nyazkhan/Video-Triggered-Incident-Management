@@ -7,11 +7,17 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { ControlRoomService } from 'src/app/services/control-room.service';
 import { ConfigEquipModalComponent } from './config-equip-modal/config-equip-modal.component';
+import { AddCameraComponent } from './add-camera/add-camera.component';
+import { ConfigCameraModalComponent } from './config-camera-modal/config-camera-modal.component';
+import { ConfigFileModalComponent } from './config-file-modal/config-file-modal.component';
 
 @NgModule({
   declarations: [ControlRoomComponent,
     ConfigEquipModalComponent,
-    AddUserComponent],
+    AddUserComponent,
+    AddCameraComponent,
+    ConfigCameraModalComponent,
+    ConfigFileModalComponent],
   imports: [
     CommonModule,
     HeaderModule, // HeaderModule exports CommonModule. so no need to import CommonModule here
